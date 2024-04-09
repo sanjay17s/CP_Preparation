@@ -1,9 +1,9 @@
-package usaco;
+package usaco.completeSearchWithRecursion;
 
 import java.io.*;
 import java.util.*;
 
-public class permuteString {
+public class sublists {
 
     public static class InputReader {
         BufferedReader reader;
@@ -38,31 +38,36 @@ public class permuteString {
     static PrintWriter pw = new PrintWriter(System.out);
 
     public static void main(String[] args) {
-        String s ="math";
-        backtrack(s);
-
+        List<String> list = new ArrayList<>();
+        list.add("jane");
+        list.add("bob");
+        list.add("matt");
+        list.add("hen");
+       List<List<String>> res = new ArrayList<>();
+        sublists(list,res);
+        pw.println(res);
         pw.close();
     }
 
 
 
-    public static void backtrack(String s){
-        backtrack(s,"");
+    public static void sublists(List<String> s,List<List<String>> res){
+        sublists(s,new ArrayList<>(),res);
     }
 
-   public static void backtrack(String s ,String content){
+   public static void sublists(List<String> s,List<String> l,List<List<String>> res){
         if(s.isEmpty()){
-            pw.println(content);
-        }
-        else{
-            StringBuilder sb = new StringBuilder(s);
-            for(int i=0;i<s.length();i++){
-                char ch = s.charAt(i);
-                sb.deleteCharAt(i);
-                backtrack(sb.toString(),content+ch);
-                sb.insert(i,ch);
-            }
-        }
+           res.add(new ArrayList<>(l));
+       }
+       else{
+           String ad=s.get(0);
+           s.remove(0);
+           l.add(ad);
+           sublists(s,l,res);
+           l.remove(ad);
+           sublists(s,l,res);
+           s.add(0,ad);
+       }
    }
 
 
