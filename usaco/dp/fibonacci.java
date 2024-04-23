@@ -1,7 +1,7 @@
-package usaco.completeSearchWithRecursion;
+package usaco.dp;
 
 import java.util.Arrays;
-import java.util.Scanner;
+
 // dp
 public class fibonacci {
     static int cnt =0;

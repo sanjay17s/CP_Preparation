@@ -1,4 +1,4 @@
-package usaco.completeSearchWithRecursion;
+package usaco.dp;
 
 // dp
 public class fiboTwoTypesOfDp {

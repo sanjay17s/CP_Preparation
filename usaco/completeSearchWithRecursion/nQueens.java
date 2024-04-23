@@ -1,6 +1,7 @@
 import java.util.*;
+// https://leetcode.com/problems/n-queens/
 
-class Solution {
+class nQueens {
     public List<List<String>> solveNQueens(int n) {
         int[][] board = new int[n][n];
         List<List<String>> res = new ArrayList<>();
